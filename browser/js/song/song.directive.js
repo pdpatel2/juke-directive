@@ -7,9 +7,6 @@ juke.directive('songList', function(PlayerFactory){
 			doubleClick: '&'
 		},
 		link: function(scope) {
-			// element.on('dblclick', function(){
-			// 	scope.doubleClick()
-			// });
 			scope.getCurrentSong = PlayerFactory.getCurrentSong;
 			scope.toggle = function (song) {
 			    if (song !== PlayerFactory.getCurrentSong()) {
@@ -26,21 +23,3 @@ juke.directive('songList', function(PlayerFactory){
 		}
 	}
 });
-
-juke.directive('doubleClick', function(PlayerFactory) {
-	return {
-		restrict: 'A',
-		templateUrl: '/js/song/song.html',
-		scope: {
-			songs: '=',
-			doubleClick: '&'
-		},
-		link: function(scope, element) {
-			element.on('dblclick', function(){
-				scope.doubleClick()
-			});
-			scope.start = PlayerFactory.start
-		}
-	}
-})
-

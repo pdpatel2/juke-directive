@@ -3,10 +3,12 @@ juke.directive('player', function(PlayerFactory){
 		restrict: 'E',
 		templateUrl: '/js/player/player.html',
 		link: function(scope) {
-			scope.toggle = function() {
-	    		if (PlayerFactory.isPlaying()) PlayerFactory.pause();
-    			else PlayerFactory.resume();			
-			};
+			scope.toggle = function(keyCode) {
+				if (keyCode == 32 || !keyCode) {
+		    		if (PlayerFactory.isPlaying()) PlayerFactory.pause();
+	    			else PlayerFactory.resume();		
+				};
+			}
 			scope.getPercent = function() {
 				return PlayerFactory.getProgress() * 100;
 			};
@@ -14,6 +16,7 @@ juke.directive('player', function(PlayerFactory){
 			scope.previous = PlayerFactory.previous;
 			scope.next = PlayerFactory.next;
 			scope.isPlaying = PlayerFactory.isPlaying;
+			scope.shuffle = PlayerFactory.shuffle;
 		}
 	}
 })

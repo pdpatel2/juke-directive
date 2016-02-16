@@ -1,5 +1,5 @@
 <div ng-show="getCurrentSong()">
-  <div class="pull-left">
+  <div class="pull-left" ng-keyup="$event.keyCode == 32">
     <button class="btn btn-default" ng-click="previous()">
       <span class="glyphicon glyphicon-step-backward"></span>
     </button>
@@ -9,10 +9,14 @@
     <button class="btn btn-default" ng-click="next()">
       <span class="glyphicon glyphicon-step-forward"></span>
     </button>
+    <button class="btn btn-default" ng-click="shuffle()">
+      <span class="glyphicon glyphicon-random"></span>
+    </button>
   </div>
   <div class="bar">
     <div class="progress">
       <div class="progress-bar" ng-style="{width: getPercent() + '%'}"></div>
     </div>
+        <h4>{{getCurrentSong().name}}</h4>
   </div>
 </div>

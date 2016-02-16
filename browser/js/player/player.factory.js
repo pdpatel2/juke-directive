@@ -64,6 +64,12 @@ juke.factory('PlayerFactory', function ($rootScope) {
     return progress;
   };
 
+  player.shuffle = function () {
+    var num = (currentList.length * 2) + 1;
+    var rando = Math.floor(Math.random() * (num-1) + 1);
+    skip(rando)
+  };
+
   // audio event listening
 
   audio.addEventListener('ended', function () {
@@ -75,6 +81,8 @@ juke.factory('PlayerFactory', function ($rootScope) {
     progress = audio.currentTime / audio.duration;
     $rootScope.$evalAsync();
   });
+
+
 
   // return factory value
 
