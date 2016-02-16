@@ -4,7 +4,7 @@ juke.directive('player', function(PlayerFactory){
 		templateUrl: '/js/player/player.html',
 		link: function(scope) {
 			scope.toggle = function() {
-	    		if ( PlayerFactory.isPlaying() ) PlayerFactory.pause();
+	    		if (PlayerFactory.isPlaying()) PlayerFactory.pause();
     			else PlayerFactory.resume();			
 			};
 			scope.getPercent = function() {
